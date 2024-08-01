@@ -1,21 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-deploy
+  name:  hello-word
+  namespace: default
   labels:
-    app: test-pod
+    app:  hello-word
 spec:
-  replicas: 1
   selector:
     matchLabels:
-      app: test-pod
+      app: hello-word
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
   template:
     metadata:
       labels:
-        app: test-demo
+        app:  hello-word
     spec:
       containers:
-      - name: hello
+      - name:  hello-word
         image: yogik001/test:v1
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
         ports:
-        - containerPort: 80
+        - containerPort:  80
+          name:  hello-word
+      restartPolicy: Always
+
+      
