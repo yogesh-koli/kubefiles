@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  hello-word
+  name:  hello-1
   namespace: default
   labels:
-    app:  hello-word
+    app:  hello-1
 spec:
   selector:
     matchLabels:
-      app: hello-word
+      app: hello-1
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,10 +18,10 @@ spec:
   template:
     metadata:
       labels:
-        app:  hello-word
+        app:  hello-1
     spec:
       containers:
-      - name:  hello-word
+      - name:  hello-1
         image: yogik001/test:v1
         resources:
           requests:
@@ -32,7 +32,5 @@ spec:
             memory: 100Mi
         ports:
         - containerPort:  80
-          name:  hello-word
+          name:  hello-1
       restartPolicy: Always
-
-      
