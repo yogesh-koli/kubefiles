@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd-app2
+  name: apache-deployment-argo
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/yogesh-koli/kubefiles.git # URL of your Git repository
     targetRevision: master  # Git branch, tag, or commit
-    path: apache-apps  # Path within the Git repository where manifests are located
+    path: apache  # Path within the Git repository where manifests are located
   destination:
     server:  https://test-1-dns-17jic8ac.hcp.centralus.azmk8s.io:443  # Kubernetes API server address
     namespace: argocd  # Namespace to deploy into

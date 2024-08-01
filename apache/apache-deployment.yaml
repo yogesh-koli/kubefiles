@@ -1,14 +1,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  hello-1
+  name:  apache-deployment-argo
   namespace: default
   labels:
-    app:  hello-1
+    app:  apache-deployment-argo
 spec:
   selector:
     matchLabels:
-      app: hello-1
+      app: apache-deployment-argo
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,11 +18,11 @@ spec:
   template:
     metadata:
       labels:
-        app:  hello-1
+        app:  apache-deployment-argo
     spec:
       containers:
-      - name:  hello-1
-        image: yogik001/test:v1
+      - name:  apache-deployment-argo
+        image: httpd:alpine3.20
         resources:
           requests:
             cpu: 100m
@@ -32,5 +32,5 @@ spec:
             memory: 100Mi
         ports:
         - containerPort:  80
-          name:  hello-1
+          name:  apache-deployment-argo
       restartPolicy: Always
