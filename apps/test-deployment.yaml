@@ -15,7 +15,7 @@ spec:
         app: test-demo
     spec:
       containers:
-      - name: yogik001/test
+      - name: hello
         image: yogik001/test:v1
         ports:
         - containerPort: 80
