@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/yogesh-koli/test-argo.git  # URL of your Git repository
+    repoURL: https://github.com/yogesh-koli/kubefiles.git # URL of your Git repository
     targetRevision: master  # Git branch, tag, or commit
     path: apps  # Path within the Git repository where manifests are located
   destination:

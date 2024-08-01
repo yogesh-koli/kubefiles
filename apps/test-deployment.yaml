@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name:  hello-word
-        image: yogik001/test:v1
+        image: nginx
         resources:
           requests:
             cpu: 100m
@@ -35,4 +35,3 @@ spec:
           name:  hello-word
       restartPolicy: Always
 
-      
