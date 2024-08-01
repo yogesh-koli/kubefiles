@@ -4,11 +4,11 @@ metadata:
   name:  apache-deployment
   namespace: default
   labels:
-    app:  apache-deployment-argo
+    app:  apache-deployment
 spec:
   selector:
     matchLabels:
-      app: apache-deployment-argo
+      app: apache-deployment
   replicas: 1
   strategy:
     rollingUpdate:
@@ -18,10 +18,10 @@ spec:
   template:
     metadata:
       labels:
-        app:  apache-deployment-argo
+        app:  apache-deployment
     spec:
       containers:
-      - name:  apache-deployment-argo
+      - name:  apache-deployment
         image: httpd:alpine3.20
         resources:
           requests:
@@ -32,5 +32,5 @@ spec:
             memory: 100Mi
         ports:
         - containerPort:  80
-          name:  apache-deployment-argo
+          name:  apache-deployment
       restartPolicy: Always
